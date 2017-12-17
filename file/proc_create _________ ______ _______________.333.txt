@@ -1,0 +1,27 @@
+==============Content================
+과제 코드 이해가 어려워 질문 올립니다.
+
+proc_create 함수에 proc_option인자가 nice와 rt_priority와 관련있는 것 같은데,
+
+if(opt != NULL) {
+		p -> nice = 0;	
+		p -> rt_priority = 0;  
+	}
+	else {
+		p -> nice = 20;
+		p -> rt_priority = (unsigned char)45;
+	}
+
+위 코드에서
+opt가 NULL이 아니면 p 프로세스 nice와 rt를 0으로 ,
+ 그 외에는 nice는 20, rt_priority는 (unsigned char)45로 초기화 하는 이유가 무엇인가요..?
+
+
+
+==============Comment================
+idle()을 보시면 알겠지만, 항상 opt를 넘기고 있죠. else part에는 크게 의미를 두지 않으셔도 되구요. 예상하신 것처럼, if 부분을 고치셔야 돼요.
+
+답변 감사합니다.
+
+저 값은 임의로 정한값이므로 과제 수행에는 크게 신경쓰지 않으셔도 됩니다.
+

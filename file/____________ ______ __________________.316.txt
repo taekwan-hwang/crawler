@@ -1,0 +1,17 @@
+==============Content================
+time slice를 모두 소비해서 context swich되면 run되던 프로세스의 상태는 ready상태가 된다고 수업시간때 배운것 같습니다.
+
+그런데 과제에는 rlist 와 slist 밖에 없고proc.h의 p_state에도 ready라는 상태가 없는걸 확인했습니다.
+
+그렇다면
+ 1. rlist에 있는 프로세스들은 다 ready상태고  
+프로세스가 slist에 들어갈 경우는 i/o인터럽트가 발생해서 상태가 sleep됐을 때 뿐인가요?
+
+2. 그리고 get_next_proc()함수에서 rlist에 있는 프로세스중 상태가 PROC_RUN인 프로세스를 리턴해주던데
+rlist에 있는 프로세스중 상태가 PROC_RUN가 아닌 프로세스도 있는 경우도 있는지,언제인지 궁금합니다.
+
+
+
+==============Comment================
+proc_sleep() 함수에서 state를 어떻게 바꾸는지 확인해보세요. 두 질문에 대한 답이 될 것 같습니다.
+

@@ -1,0 +1,18 @@
+==============Content================
+sched_find_set함수에서 우선순위가 낮은 리스트를 찾아서 이것을 get_next_proc의 인자로 보내는 것으로 확인했습니다.
+그런데 shced_find_set함수는 process를 리턴하고 get_next_proc은 list를 인자로 받는데 이 두개를 연결할 수 있는 방법이 있나요?  
+그리고 list에는 elem_stat이나 elem_all같은 list_elem구조체를 push하는데 이 list_elem으로 해당 process를 추출할 수 있나요?
+
+
+
+==============Comment================
+0. 'priority값이 낮음 = 우선순위가 높음' 입니다. 질문자 분께서 낮은 것부터 찾도록 구현한 것 같으므로 상관은 없겠으나, 낮은 값이 우선순위는 높다는 것을 노파심에 알려드립니다.
+1. sched_find_set() 함수의 리턴타입이 struct process입니다. get_next_proc() 함수의 리턴타입을 확인해 보시면 어떻게 구현해야 할 지 감이 잡히실겁니다.
+2. 기존 fifo 스케줄러에서 list를 탐색하는 방법을 확인해보시기 바랍니다. list_elem을 통해서 프로세스의 정보를 얻어올 수 있습니다.
+
+보시면 아시겠지만 우선순위가 높은 리스트 구조체 멤버변수가 list_elem들인데 이걸 탐색해서 process를 추출하는 과정을 get_next_proc에서 하고있습니다.
+
+list_entry를 살펴보세요
+
+넵 무엇을 어떻게 사용해야 할지 알겠습니다 감사합니다!
+

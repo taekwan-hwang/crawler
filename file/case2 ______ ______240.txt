@@ -1,0 +1,10 @@
+==============Content================
+case1은 정상출력이됬으나, case2 의경우 단지 주석해제(kernel3_proc()는 구현함)를 했는데, 출력중에 정지합니다. 생각을해봐도 정지할이유를잘 못찾습니다만 혹시 저와같은오류가발생하신분계신가요?
+
+
+
+==============Comment================
+전 proc_sleep() 함수내에 schedule() 함수 호출 되있는 걸 지웠더니 됐었습니다.
+
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=2&uid=1214&mod=document 여기에 남겨주신 팁으로 해결했습니다. 감사합니다.
+

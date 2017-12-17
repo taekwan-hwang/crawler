@@ -1,0 +1,22 @@
+==============Content================
+cr3레지스터에서 현재 page directory 주소를 가져온다는 것으로 알고 있는데요
+새로운 프로세스가  생성되었을 때 그에 맞는 page directory를 가져오기 위해서는
+새로운 page directory를 생성할 때마다 cr3레지스터에 직접 저장을 해줘야 하나요?
+
+
+
+==============Comment================
+새로운 프로세스 생성시 proc_create가 호출됩니다.
+새로운 프로세스는 그에 맞는 page directory를 생성하게 되는데,
+그 page directory는 pd_create() 를 호출함으로써 생성됩니다.
+생성된 page directory의 주소값은 process의 pd에 할당됨 으로써 자동으로 저장 되게 됩니다.
+결론은 자동으로 저장 되므로 신경쓰지 않으셔도 됩니다.
+
+proc.h에 extern변수로 cur_process가 존재하고 있습니다.
+그리고 paging.c에서는 proc.h를 include하고 있지요.  
+이를 이용한다면 cur_process에 있는 값들에 접근하는 것이 paging.c에서도 가능합니다.
+
+감사합니다 (__)
+
+참고로, 3번을 수행하실때는 0번 프로세스가 아닌 쉘 프로세스가 들어오기 때문에,  pf_handler에서 프로세스에 따라 처리하는 방식이 달라져야합니다~ 이점 참고하세요
+

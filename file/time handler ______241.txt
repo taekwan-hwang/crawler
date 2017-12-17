@@ -1,0 +1,16 @@
+==============Content================
+0번 -> 2번 -> 0번 -> 1번 프로세스 까지는 실행이 되는데
+kernel1_proc 에서 while에서 무한루프를 도는데
+원래라면 timehandler에 의해 60틱이 지났는지 확인 후 schedule 함수를 호출하늗네
+kernel1 으로 switch 하고나면 timehandler가 호출이 안되요..
+kernel1_proc 에서도 intr_enable도 해보고 실행 흐름 따라가면서 intr_enable 해봤는데 time handler는 안되네요..
+그래서 kernel1_proc 에서 time_handler와 같이 테스트를 위해 임의로 time_slice ++ time_used++ 하면서 60틱 지나면 schedule() 함수 호출
+하였더니 1번 2번 프로세스 교환 계속 진행되는데..어디가문젠지전혀모르겠습니다. kernel1에서만 time_handler가 안되네요..
+
+
+
+==============Comment================
+확실친 않지만 proc_sleep()내에 schedule() 한 번 지워보세요...
+
+다른데서 schedule() 추가 했더니 안됬네요..해결했습니다~
+

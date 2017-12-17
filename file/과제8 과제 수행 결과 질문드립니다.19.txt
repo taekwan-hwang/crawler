@@ -1,0 +1,18 @@
+==============Content================
+명세에 과제수행 결과의 "과제 수행 후 실행 모습"예시 사진을 보면 첨부 파일과 같이
+load inode bitmap : 2520 bit
+load block bitmap : 256 bit
+처럼 나와있습니다.
+
+처음 make & make run 시에도 명세 예시 처럼 load bitmap이 나와야하는건가요?
+
+
+
+==============Comment================
+비트맵은 과제7에서 다뤘던 파일시스템 중 일부분 입니다.
+make를 해줘도 나오는게 맞습니다.
+
+죄송합니다 질문이 모호했네요. 과제7에서는 처음 make & make run했을 때는 initialize block bitmap이라고 나오고 그 이후로 make run했을 때 load block bitmap이라고 나왔는데 8번에서는 처음 make & make run 때도 load block bitmap이라고 나와야되는지 묻는 질문이었습니다.
+
+처음 make&make run했을 때는 7번과제와 동일하게 initialize block bitmap이라고 나와야 합니다.
+

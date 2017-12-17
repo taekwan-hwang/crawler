@@ -1,0 +1,9 @@
+==============Content================
+proc.h에 보면 ssufile 구조체가 포인터로 선언되어있어서 file_open에서도 file구조체를 초기화 한 후 그 주소값을 저장하면 file_open함수가 끝난 후에 그 주소가 날아가버릴텐데 어떻게 해야할까요... proc.h ssufile 구조체에  선언부에 포인터를 제거하면 안되겠죠?
+
+
+
+==============Comment================
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=2&uid=1939&mod=document
+같은문제인것 같습니다
+

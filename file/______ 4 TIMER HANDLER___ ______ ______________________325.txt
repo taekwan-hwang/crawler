@@ -1,0 +1,21 @@
+==============Content================
+제가 이해가 부족한데.. 만약에 어떤 프로세스가 cpu를 점유한 상태라고 하면,,
+
+점유한 시간만큼 시간의 기록하기 위해서, TIMER HANDLER를 통해서 시간을 체크(?) 하는 걸로 이해하고 있는데요.
+
+그럼 이 TIMER HANDLER는 어떤 시점에서 수행되는건가요?..
+
+
+
+==============Comment================
+PIT(Programmable Interval Timer)라는 칩이 있는데 이 칩에서 주기적으로 timer interrupt를 발생시킵니다.  사용법등 더 자세한 내용은 링크에 있습니다.
+http://wiki.osdev.org/Programmable_Interval_Timer#Uses_for_the_Timer_IRQ
+
+https://stackoverflow.com/questions/2897883/what-happens-in-the-x86-architecture-when-an-interrupt-occurs 
+답변을 요약하자면, interrupt가 발생했을 때, cpu가 하던 일을 멈추고 이거 처리하러 다녀온다고 생각하시면 돼요. 돌아왔을 때, 어디까지 했는지 알아야 되니까 cpu flags, ip 등을 스택에 넣어두고 나중에 돌아와서 꺼내는 거죠. timer interrupt도 이 중 하나구요.
+
+쉽게 생각하면 cpu가 1tick을 수행할때 마다 timer_handler가 한번씩 호출된다고 생각하면 편합니다. 함수를 보시면 알겠지만
+timer_handler를 거칠 때마다 전체 tick과 현재 프로세스가 사용한 tick이 각각 하나씩 증가하니까요
+
+모든 답변에 감사드립니다~!
+

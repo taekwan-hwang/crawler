@@ -1,0 +1,36 @@
+==============Content================
+글자 출력까진 했는데 글자 색을 입혔더니
+Protected Mode부터 글자가 사라져버립니다.
+
+비디오모드를 0x03로 했을때는 글자에 색이 안입혀지지만 다른 글자들과 함께 출력됩니다.
+0x12로 했을때는 글자에 색이 입혀지긴 하지만 다른 글자들이 나오지 않습니다.
+비디오모드를 뭐로 설정할지 참고할만한곳이 있을까요?
+
+
+
+==============Comment================
+0  text     40x25     8x8* 16/8 (shades) CGA,EGA  b800  Composite
+      1  text     40x25     8x8* 16/8          CGA,EGA  b800  Comp,RGB,Enh
+      2  text     80x25     8x8* 16/8 (shades) CGA,EGA  b800  Composite
+      3  text     80x25     8x8* 16/8          CGA,EGA  b800  Comp,RGB,Enh
+      4  graphic  320x200   8x8  4             CGA,EGA  b800  Comp,RGB,Enh
+      5  graphic  320x200   8x8  4 (shades)    CGA,EGA  b800  Composite
+      6  graphic  640x200   8x8  2             CGA,EGA  b800  Comp,RGB,Enh
+      7  text     80x25    9x14* 3 (b/w/bold)  MDA,EGA  b000  TTL Mono
+ 8,9,0aH  PCjr modes
+ 0bH,0cH  (reserved; internal to EGA BIOS)
+     0dH graphic  320x200   8x8  16            EGA,VGA  a000  Enh,Anlg
+     0eH graphic  640x200   8x8  16            EGA,VGA  a000  Enh,Anlg
+     0fH graphic  640x350  8x14  3 (b/w/bold)  EGA,VGA  a000  Enh,Anlg,Mono
+     10H graphic  640x350  8x14  4 or 16       EGA,VGA  a000  Enh,Anlg
+     11H graphic  640x480  8x16  2             VGA      a000  Anlg
+     12H graphic  640x480  8x16  16            VGA      a000  Anlg
+     13H graphic  640x480  8x16  256           VGA      a000  Anlg
+
+비디오모드 에대한 자료입니다.
+비디오모드가 문제일 수 도 있지만 글자출력 시 인터럽트를 다른 인터럽트로 바꿔보는 것도 좋을 것같습니다~
+
+감사합니다 현재는 10h인터럽트로 시도하고있는데 여기에 문제가 있을까요?
+
+ah 설정 값에 대해 자세히 읽어보시면 도움이될 것 같습니다.
+

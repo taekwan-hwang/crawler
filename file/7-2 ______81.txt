@@ -1,0 +1,9 @@
+==============Content================
+명세서  "bitmapblock의 앞부터 2KB는 block bitmap을 위해, 뒤에서 2KB는 inode bitmap을 위해 사용" 부분에서  
+"모든 바이트를 사용하지는 않음"이 궁금합니다
+
+
+
+==============Comment================
+block bitmap하고 inode bitmap은 각각 block 하고 inode_tbl을 가리키는건 명세에 나와있습니다. 근데  2KB이 몇bit인지 보시고, inode갯수랑 block갯수랑 보시고 코드에 정의되어있는 값을 찾아보시면 답을 알 수 있습니다
+

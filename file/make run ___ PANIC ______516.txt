@@ -1,0 +1,9 @@
+==============Content================
+모듈 x 라는 파일이 없다고 나옵니다. 무엇이 문제일까요?..
+
+
+
+==============Comment================
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=1&mod=document&uid=444
+밑에서 나온 질문과 동일한 증상같아서 참고하시면 좋을것같습니다~
+

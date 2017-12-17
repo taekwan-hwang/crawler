@@ -1,0 +1,25 @@
+==============Content================
+1. init_inode_table함수에서 테이블을 초기화 하는 것과 inode_create함수의 차이가 무엇인가요..?
+2. (질문 1을 이해하지 못해서 생기는 의문점같은데..,) inode_create함수의 리턴값이 왜 필요한가요..? inode table을 init_inode_table함수에서 초기화 하고, create 함수로 inode table의 값을 할당한다는 개념인가요?
+3. 만약 inode_create함수에서 inode table을 할당한다고 가정할 때 , 새로 할당 시점에서 사용중인 Data block의 갯수, 프로세스, data block 주소를 알 수 있나요? 
+
+4. bitmap_set의 의미가 무엇인지 잘 모르겠습니다..
+5. 명세 4페이지 중간에 "파일을 생성할때마다 inode가 새로 생성되며, inode bitmap을 통해 사용가능한 inode number를 찾아 할당받음"에서 비트맵을 통해 갯수를 할당받는다는 의미가 잘 이해가 되지 않습니다 ㅜㅜ
+
+6. 3번을 진행하면서 제대로 진행하고 있는지 확인할 수 있는 방법이 없나요?
+
+전반적인 구조가 이해가 안 되는 것 같아 진행이 안됩니다..ㅜㅜ 도움 주시면 감사드리겠습니다.
+
+
+
+==============Comment================
+4,5. bitmap_set과 bitmap_test를 사용하는 부분과 함수 구현부를 보시면 아실 수 있을텐데 bitmap_set은 그 비트를 세번째 인자 값으로 바꾸어 주는 함수이고 bitmap_test는 2번째인자인 부분의 비트가 true이면 true를 리턴 false이면 false를 리턴합니다. 쉽게 얘기해드리자면 만약 root디렉터리가 생성되기전이라면 inodemap의 2번째 비트는 false일겁니다. 그리고 root디렉터리를 생성하게되면 inodemap의 2번째 비트는 true가 되어야할겁니다.
+
+감사합니다. 그런데 bitmap_test의 경우 두 번째 인자 값에 boolean 값이 아니라 상수(idx)가 들어가지 않나요? (INO_ROOTDIR==2)
+
+그 상수번째 inodemap이 true인지 false인지 검사하는 함수인것 같습니다.
+
+6. bmap을 사용하여 확인할 수는 있지만 단편적인 것만 확인할 수 있기에 ls까진 구현하셔야 확인하실 수 있을것같습니다.
+
+감사합니다.
+

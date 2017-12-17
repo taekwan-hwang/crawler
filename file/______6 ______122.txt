@@ -1,0 +1,11 @@
+==============Content================
+과제 내용 그림을 참고하면,
+reg_handler(32, timer_handler);처럼
+reg_handler(33, kbd_handler);을 해줘야 할 것 같은데 수정시
+안 해도 동작하는 이유가 궁금합니다
+
+
+
+==============Comment================
+키보드 핸들러는 src/kernel/arch/Main.c의 init_kbd()에서 진행됩니다. init_kbd()는 src/kernel/device/kbd.c에 존재하며 여기서 reg_handler(33, kbd_handler);를 수행하고 있습니다.
+

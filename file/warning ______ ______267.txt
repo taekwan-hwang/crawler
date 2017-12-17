@@ -1,0 +1,9 @@
+==============Content================
+make 를 진행했는데 read_cr3, pd_create 와 같은 함수의 선언이 안되어있다고 뜨는데요, 헤더가 포함되지않은듯해서 그런것같은데,, 이거 자연스러운 현상인가요?(원래 포함이 안되있는것인지 아니면 다른무언가가 잘못된것인지,,)
+
+
+
+==============Comment================
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=1&mod=document&keyword=warning&uid=1091
+굳이 수정할 필요는 없을 것 같습니다
+

@@ -1,0 +1,10 @@
+==============Content================
+명세서 상 case 결과에 seleceted는 어떤걸 의미하나요???
+
+
+
+==============Comment================
+그 pid와 Context Switching이 일어났다는걸 의미합니다.
+
+schedule()에 의해 select 된 process pid 인듯합니다.
+

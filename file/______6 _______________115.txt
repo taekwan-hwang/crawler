@@ -1,0 +1,12 @@
+==============Content================
+c코드 내부에서 어셈블리어 어떻게 사용하는지 감이 안잡힙니다.
+참고할 사이트 링크라도 주시면 감사하겠습니다.
+
+
+
+==============Comment================
+https://stackoverflow.com/questions/2114163/reading-a-register-value-into-a-c-variable 여기 링크를 참조하시는게 좋을거 같아요!
+
+저는 여기서 도움을 받았습니다.
+http://blog.naver.com/gh5736/220925997012
+

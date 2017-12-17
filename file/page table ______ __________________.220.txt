@@ -1,0 +1,14 @@
+==============Content================
+만일 page directory 탐색 중 page table 또한 존재하지 않으면 palloc_get_page() 함수를 사용하
+여 page 하나를 할당 받고 page table로 사용
+
+이라고 명세에 적혀있던데 page directory 탐색중 page table이 없어도 page fault가 뜨지않나요?
+
+그러면 맵핑된 page가 없어서 뜨는 page fault와 page table이 없어서 뜨는 page fault를 pf_handler에서 각 다르게 처리해야될거같은데
+어떻게 두 page fault를 구분하는지 잘모르겠습니다.
+
+
+
+==============Comment================
+page fault handler 함수 안에서 page directory를 탐색 중에 일어나는 page fault를 어떻게 다루는지가 이번 과제 핵심이라고 할 수 있겠습니다.
+

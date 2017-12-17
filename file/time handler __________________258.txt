@@ -1,0 +1,24 @@
+==============Content================
+저가 며칠동안 분석했는데 완전히 분석이 안되서 어느정도 이해한 뒤로 구현하고있는데,
+priority list에서 먼저 70의 priority 값을 갖는 프로세스로 context switch 하고,
+그 다음에 90의 priority 값을 갖는 프로세스로 context switch하여
+kernel1_proc 까지는 실행됩니다.
+근데 그 뒤로 time_handler가 호출이 되지 않는거 같은데
+Q&A 게시판을 보고 인터럽트 권한 문제인줄 알고 schedule() 함수의 끝에도 intr_enable() 해보고
+kernel1_proc 함수의 시작전에도 intr_enable()해보고 while문에서도 intr_enable()해보았는데
+time_handler가 호출이 되지 않습니다...
+context switch 과정을 잘못하여 이렇게 된건지 도통 모르겠습니다..아시는분 계신가요
+아 아직 I/O 부분은 제외하고 구현하였습니다~
+
+
+
+==============Comment================
+혹시에 active와 expired에 prcoess에 추가할때 elem_stat을 사용하셔서 push하셨다면 그부분에서 잘못 되셨던것 같습니다.
+
+저는 2차원 배열의 인덱스에 elem_stat을 사용해서 push했는데 같은말인가요?
+
+예... 저도 그부분떄문에 .... 코드를 2~3번 갈아 엎었는데 ... 
+보면 sleep-wake 하는과정에서 elem_stat을 사용하게 되는데 이것을 다시 active-expired하는데 사용하다보니 포인터가 가르키는 부분이 잘못 되어서 문제를 발생하셨을 겁니다...
+
+넵 참고해서 해볼게요~! 감사합니다!
+

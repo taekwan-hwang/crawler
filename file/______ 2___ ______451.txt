@@ -1,0 +1,19 @@
+==============Content================
+INT 10H 0eH 사용을 해도
+
+글자 색깔이 안 바뀝니다..
+
+0x0eh로는 글자 색이 원래 안바뀌는겁니까?
+
+BL    (graphics modes only) foreground color number
+
+이 그래픽 모드 온리라는 뜻이  뭡니까??
+
+
+
+==============Comment================
+0eh로는 글자의 색이 변하지않구요 글자색을 세팅하면서 출력해주는 ah가 또있습니다.
+https://en.wikipedia.org/wiki/INT_10H 여기를 참조해 보세요.
+
+0eh는 글자색상으로 알고 있습니다.
+

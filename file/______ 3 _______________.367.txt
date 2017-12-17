@@ -1,0 +1,13 @@
+==============Content================
+#define SCROLL_END buf_s + SIZE_SCROLL
+여기서 char * 형에 SIZE_SCROLL을 더하면 어떤 값이 들어가나요?
+%s로 찍어도 %d로 찍어도 잘 모르겠어요ㅜㅜ
+
+
+
+==============Comment================
+http://proneer.tistory.com/entry/C%EC%96%B8%EC%96%B4-%EB%AC%B8%EC%9E%90%EC%97%B4-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EB%8B%A4%EB%A3%A8%EA%B8%B0
+참고하시면 좋을것같습니다.
+
+주소연산이 되어서 buf_s[SIZE_SCROLL]이 된다고 생각하시면 쉬울 것 같습니다.
+

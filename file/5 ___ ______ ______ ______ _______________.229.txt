@@ -1,0 +1,19 @@
+==============Content================
+scale_up / scale_down  함수가 어느곳에서도 호출이 되지 않는데,
+이 함수들의 정체에 대해 간략하게나마 힌트를 얻고 싶습니다.
+
++ memcpy_hard() 함수의 파라미터 순서가
+(from,to,length) 인데, 보통은 from -> to의 순서로 쓰는것으로 알고 있습니다.
+해서 마치 1 -> 2로 읽혀지는데, 
+
+그런데 memcpy()의 명세를 cplusplus에서 찾아보니 memcpy(dest,source,length)로 dest<-socuce, 즉 2->1로 되어 있습니다.
+
+http://www.cplusplus.com/reference/cstring/memcpy/?kw=memcpy
+
+단순히 memcpy_hard에서의 오타인가요? 아니면 memcpy를 반대로 먹이는것이 맞는건가요?
+
+
+
+==============Comment================
+개인적으로 저는 두 함수 모두 안 썼지만, 확실히 말씀드릴 수 있는건  memcpy_hard()는 이 과제와 관련이 없습니다.
+

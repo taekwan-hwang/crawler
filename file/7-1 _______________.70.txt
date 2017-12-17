@@ -1,0 +1,11 @@
+==============Content================
+fs_readblock, fs_writeblock함수에서 사용되는 DEVOP_READ, DEVOP_WRITE가 어떻게 동작하는지 잘 모르겠습니다.
+disk의 startsec블록을 buf로 읽는건가요?
+
+
+
+==============Comment================
+startsec은 index값이라고 생각했습니다
+
+DEVOP_READ/WRITE는 1명세에 나와있는 block device의 device driver수준의 IO function을 매크로 함수로 정의해놓은 것입니다. 해당함수의 두번째 인자는 Disk를 block device에서 정의된 block크기로 나누었을때, 몇번째 block인지에 대한정보(block index)입니다. 많은분들이 startsec에 들어가는 값이 disk의 물리적인 주소값이라고 착각하는데 잘못된 생각입니다.
+

@@ -1,0 +1,48 @@
+==============Content================
+명세에는 "active 배열에 프로세스가 하나도 존재하지 않게 되는 시점에  expired 배열과 교체를 수행"한다고 나와있습니다.
+또한 "I/O와 같은 인터럽트가 발생하는 상황으로 인해 time_slice를 모두 소비하지 못한 프로세스"가 active에 있다고 되어있습니다.
+
+Case2의 실행 결과를 분석중 아래에서 막혔습니다.
+#=1 p=90 c=60 u=60, #=3 p=80 c=60 u=140
+Selected: 1
+Proc 1 IO at 80
+(#= p= ... 이 출력문이 rlist를 출력한다고 이해했습니다.)
+
+이전 결과에 따라 위 출력일 때는 active에 proc1, expired에 proc 3이 있어야하는 것 아닌가요?
+따라서 아직 active에는 proc1이 남아있으므로 교체가 수행되지 않고
+tick만 흐르다가 proc1의 IO가 끝나면 그때 proc1의 time_slice가 처음부터 다시 흘러 expired에 들어가게 되어야 할 것 같습니다.
+(즉, proc1의 time_used = 140, proc3의 time_used = 140)
+
+하지만 위 출력 이후에는 다음과 같은 출력이 이어집니다.
+#=3 p=80 c=60 u=140
+Selected: 3
+
+이전 결과에 따라 proc3는 expired였고 proc3가 다시 active가 되어 이처럼 selected되려면 교체가 일어났어야 했는데
+그러려면 출력문은
+#=1 p=90 c=60 u=140, #=3 p=80 c=60 u=140
+Selected: 3
+이와 같이 되어야 하는 것 아닌가요?
+
+------
+위와 같이 질문 메일을 드렸고 아래와 같이 답을 받았습니다.
+
+기존 소스코드에서 I/O가 발생하면 프로세스의 list_elem이 slist로 이동하게 되며, rlist에서 빠지는 것을 확인하셨을 겁니다. 
+동일하게 2차원 배열의 priority array에도 적용한다고 생각하시면 됩니다. I/O를 수행한다고 해서 active배열에 proc1이 남아있는 것은 아닙니다.
+
+------
+그런데 여기에서 추가 질문 사항이 생겨 질문을 드립니다.
+I/O를 수행한다고 해서 active 배열에 proc1이 남아있는 것은 아니라고 하셨는데 그러면
+
+1.  sleep을 걸 때마다 해당 프로세스는 expired 배열로 옮겨가는 건가요?
+2. 아니면 active 배열에 더이상 RUN 상태인 프로세스가 남아있지 않을 때 expired의 프로세스들을 active로 옮기는 건가요?
+
+
+
+==============Comment================
+1https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=4&uid=1131&mod=document
+1. 과 조금 관련이있어보여 링크를 남깁니다.
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=1&uid=1158&mod=document
+2.와 조금 관련이있어보여 링크를 남깁니다.
+
+해결했습니다. 감사합니다.
+

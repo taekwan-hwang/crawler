@@ -1,0 +1,6 @@
+==============Content================
+inode_create() 에서 inode bitmap 의 false인자를 찾기위해 bitmap_test를 호출하는데 여기서 intr 6이 떴다 안떳다 하는데 왜그러는 것일까요...
+
+
+
+==============Comment================

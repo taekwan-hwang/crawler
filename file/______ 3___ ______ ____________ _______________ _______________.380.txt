@@ -1,0 +1,13 @@
+==============Content================
+첫번째 interrupt initialization 이후 init_palloc에서 memory pool 문장이 출력되고 그다음에 interrupt initialization이 또 출력되고
+ palloc  initialization이 출력되는데 두번째 interrupt initialization은 어떻게 출력되는 것인가요??
+
+
+
+==============Comment================
+제가 질문을 잘 이해했는지 모르겠습니다. 말씀하신 그 문장이 어느 함수에서 출력되는지가 궁금하신 건가요?
+
+메인.c 파일에 출력문장입니다~~ 명세서에도 보면 두번출력되어있는데 이해가안가네요 ㅠ
+
+말씀하신 대로 같은 문장이 2번 실행되네요... 흐으음;;
+

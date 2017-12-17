@@ -1,0 +1,11 @@
+==============Content================
+do_syscall 과 syscall의 차이가 뭡니까?
+
+
+
+==============Comment================
+수업시간에 잠시 말씀하셨던 read를 호출하면 커널내부에서 generic_read가 호출된다고 하신거처럼 
+시스템콜들은 내부적으로 syscall을 호출하여 do_syscall이 작동하게 됩니다 
+https://m.blog.naver.com/PostView.nhn?blogId=daisuki_&logNo=140103437139&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
+링크에 있는 사진과 같은 사진이 책에 있으니 해당 부분을 공부하시면 좋을거 같습니다
+

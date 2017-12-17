@@ -1,0 +1,18 @@
+==============Content================
+명세대로 cr2에 저장된 page_fault된 주소로 page_dir의 index와 page_tbl의 index를 구하고, 
+
+page_dir[index]에 page_tbl의 주소와 플래그를 넣고
+page_tbl[index]에 physical memory의 주소와 플래그를 넣었는데요.
+
+이렇게 되면, 명세처럼 one_page2, two_page에서 페이지 폴트가 발생하지 않습니다.
+
+이유를 찾아보니, init_paging에서 page_table을 512개를 초기화하는 것 떄문에 그런거 같은데요.
+
+명세에서는 pf_handler pf_copy  pd_create만 수정을 하라고 하는데,, 제가 갈피를 잘못잡고있는건가요?
+
+
+
+==============Comment================
+init_pageing 함수에서 초기화 하는 512개의 페이지와 one_page2, two_page 변수에 할당 받는 페이지는 상관 관계가 없는데 이유를 잘못 생각하시고 있는 것 같습니다.
+one_page1 변수에 페이지를 할당할 때 발생하는 page fault를 처리한다고 one_page2에 할당할 때 page fault가 발생하지 않을 수는 없습니다.
+

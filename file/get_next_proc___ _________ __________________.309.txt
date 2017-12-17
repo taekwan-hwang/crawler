@@ -1,0 +1,17 @@
+==============Content================
+priority array를 proc_create하면서 초기화 하였습니다. 
+
+그리고, shcd_find_set에서 array를 탐색하면서, 우선순위가 가장 높은(숫자상으로는 가장 낮은)  프로세스를 선택하게되는데,,
+
+get_next_proc은 왜 필요한건가요??.. ..
+
+
+
+==============Comment================
+저도 이 질문 비슷하게 했었는데 답변을 받아보니까 priority 가 같은 복수의 프로세스가 있을 수 있어서 get_next_proc 을 하는 것 같습니다.
+
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=1&mod=document&target=content&keyword=get_next&uid=1095
+을 참고하여 해결하였습니다.
+
+답변감사합니다~~
+

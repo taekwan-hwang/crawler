@@ -1,0 +1,18 @@
+==============Content================
+do_open 함수에서 inode open 함수를 실행하려고 하는데 
+
+inode open함수에서 실행되는 fs_readblock함수에서 더이상 실행이 안되는데 
+
+혹시 원인을 알 수 있을 까요????
+
+
+
+==============Comment================
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=2&uid=1935&mod=document 과 같은 질문인 것 같습니다.
+
+세마포어 조절해주세요!
+
+read하는 부분에서,  sema_down을 했는데 작업 수행 후에 sema_up을 안해줘서 그런것 같습니다!
+
+저도 질문보고 sema_up만 ata.c에 read부분에 입력해줬더니 해결됐습니다.
+

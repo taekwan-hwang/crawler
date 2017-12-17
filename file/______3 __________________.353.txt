@@ -1,0 +1,14 @@
+==============Content================
+syscall.c안의 ssuread()를 호출하면 내부에서 syscall0()함수를 호출하고 있습니다.
+제가 알기로는 do_syscall.c안의 do_ssuread()함수가 호출되는것으로 알고있는데
+syscall0의 어떤부분때문에 do_ssuread()함수가 호출되는것인지 궁금합니다
+
+
+
+==============Comment================
+int 0x30에의해 syscall_handler가 호출되고 여기서 다시 do_ssuread를 호출합니다.
+
+syscall.c 상단에 정의되어있는 define 부분을 보시면 될것가탕요.
+
+오늘 수업시간에 교수님께서 말씀하셨던 interrupt handler -> system call handler로 kernel에 접근하는 개념이라고 이해했어요 저는
+

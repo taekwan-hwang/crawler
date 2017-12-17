@@ -1,0 +1,13 @@
+==============Content================
+switch.S 파일안에
+5번째라인 보면 ".global switch_process"이 있는데 이때 .global이 의미하는게 무엇인지 궁금합니다.
+
+
+
+==============Comment================
+https://stackoverflow.com/questions/17898989/what-is-global-start-in-assembly-language
+
+switch_process가 링크되려면(즉, 다른 파일에서 호출되려면) 이 label의 address를 알아야겠죠. 이 label을 정의하는 파일에서 .global을 해주면, relative address가 해당 obj파일에 들어가고, 나중에 loader가 프로그램을 로드할 때, relative address + 시작주소를 더한 값이 이 label의 실제 주소가 되는 거구요. 이 함수를 호출하는 입장에서는 당장은 0으로 채워넣고, 로더가 나중에 이 값을 채워주기로 약속하는 것이라고.... 시프에서 배웠습니다.
+
+감사합니다!!!
+

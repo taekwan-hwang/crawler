@@ -1,0 +1,13 @@
+==============Content================
+pr_pool1, pr_pool2, active, expired 이 네개중 pr_pool1과 pr_pool2를 배열로 만들고 active와 expired는 포인터로 하여 pr_pool1, pr_pool2를 가리키게끔 하여 전부 expired 되었을 경우 두개의 포인터를 바꿔주는 식으로 해야되는건가요?  아니면 4개를 모두 배열로 만들어 관리를 해주는건가요?
+
+첫번째 방법으로 만들어 **active 가 pr_pool1의 주소를 가리킨 후 active로 출력을 해보았는데 page fault가 뜨는데 왜 뜨는건지 조언좀 구할 수 있을까요? pr_pool1으로 출력을 하면 정상적으로 됩니다.
+
+
+
+==============Comment================
+1. 첫번째 경우가 맞습니다.
+2. active을 1차원 포인터로 구현해보세요!
+
+2번 https://dojang.io/mod/page/view.php?id=312 참고해보시는건 어떤가요?
+

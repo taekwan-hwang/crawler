@@ -1,0 +1,14 @@
+==============Content================
+fault_addr에 저장되있는 선형주소의 각 비트를 분석해서 page directory와 page table의 인덱스로 활용하는 것은 이해하였습니다.
+그런데 명세서 그림 1에서 page directory에서 page table로 이어지는 그림이 잘 이해가 되지않습니다 ㅠㅠ
+
+
+
+==============Comment================
+질문을 좀 더 구체적으로 해 주실래요...? 설명을 어떻게 해야 될 지 모르겠네요ㅠㅠ;
+
+명세의 그림 1은 32bit 선형주소에서
+상위 10bit가 page directory에서 page directory entry = page table 주소을 찾는 인덱스로 사용되고,
+그 다음 10bit가 page table에서 page table entry = page 주소를 찾는 인덱스로 사용되어 page 찾아
+하위 12bit를 offset으로 사용하여 가상주소로 실제주소를 찾아가는 2단계 페이징 구조 그림입니다.
+

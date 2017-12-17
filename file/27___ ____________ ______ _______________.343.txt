@@ -1,0 +1,21 @@
+==============Content================
+스케쥴링에서 LWP라는 것을 언급하시고 설명하셨던거로 기억하는데,
+
+이 LWP에 관한 개념이 잘 이해가 되지 않습니다.
+
+검색을 해보니 user thread와 kernel thread 사이의 중간단계로 사용되는 process라고 되어있는데, 좀 더 자세한 설명이나 사용구조 등을 알고 싶습니다.
+
+정확히 무슨 개념인지, 어떻게 작동하는지 이해하면 되는지 궁금합니다.
+
+
+
+==============Comment================
+LWP란 Lightweight process의 약자이며 User Thread와 Kernel Thread사이에서 중간매개체로 쓰인다고 합니다. User 입장에서 LWP는 스케줄링을 수행하는 가상 프로세서이고  각 Kernel Thread마다 LWP가 부착되어있습니다.  OS는 Kernel Thread들을  스케줄링 후 User Thread를 연쇄적으로 스케줄링 합니다. 
+찾아본 바 작동하는 순서를 간략히 설명하자면
+1) Kernel이 application들에게 LWP를 제공
+2) application들은 자신의 User Thread를 가용한 virtual processor에게  스케줄링하고 이때 kernel은 application에게 이를 알려야 하며 이과정을 Upcall이라고 한다.
+3) Upcall Handler가  virtual processor를 실행시킴
+
+http://suseok.egloos.com/4125017
+여기 참고해 보세요!
+

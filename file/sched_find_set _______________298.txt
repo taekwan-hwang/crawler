@@ -1,0 +1,17 @@
+==============Content================
+과제 명세 그림상 sched_find_set으로 array 에서 list를 리턴하고 해당 list중 state가 run 인 프로세스를 get_next_proc 함수가 리턴하는걸로 이해했습니다. 그런데 sched_find_set 함수는 list 가 아니라 process를 리턴하는데 이걸 list 로 고쳐도 될지 궁금합니다
+
+
+
+==============Comment================
+과제 수행 방법의 명세을 보게되면.. sched_find_set() 함수 구현 부분에 get_next_proc()함수를 사용하라고 되어있습니다. 그래서 저는 sched_find_set() 함수 내부에서 get_next_proc() 함수를 이용해 프로세스를 받아오고, 이 값을 return 해주는 것이 맞다고 생각해서 이렇게 구현했습니다.
+
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?uid=1132&mod=document&pageid=1
+동일한 내용인것 같아 링크를 남깁니다.
+
+process을 리턴받아도 사실 process끼리 list처럼 연결되어있기 때문에 굳이 list로 안고쳐도 될거 같습니다.
+
+process 받으면 타입 에러 아닌가요..?
+
+process을 list로 list을 process로 자료형을 바꾸는 방법이 있습니다!! proc_create함수랑 get_next_proc 함수에 있는 list함수 분석해보시면 도움되실 것 같아요!
+

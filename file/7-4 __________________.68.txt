@@ -1,0 +1,14 @@
+==============Content================
+inode구조체의 sn_directblock이 어떤 구조를 가지고 있는지 잘 모르겠습니다.
+
+root를 예로 들면 sn_directblock[0],[1]에 자신의 ino(=2)를 넣고 sn_directblock[2]부터 root아래로 생성된 ino를 넣는게 맞는건가요?
+
+그렇다면 mkdir 로 root아래에  ino=3인 mans directory를 생성했다고 한다면 
+
+man directory의 inode의 sn_directblock[0],[1]=3이 되는건가요?
+
+
+
+==============Comment================
+sn_directblock은 그 inode가 사용중인 블록 번호를 저장하는 변수입니다.
+

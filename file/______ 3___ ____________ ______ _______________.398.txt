@@ -1,0 +1,14 @@
+==============Content================
+스캔코드에 &0x7f를 하는 이유가 무엇인가요?
+
+
+
+==============Comment================
+위에 분들 감사합니다!
+
+혹시 ConvertScancodeToASCII 함수 말씀하시는 건가요?? 아스키 코드는 7비트만 사용하는걸로 알고 있습니다. 
+어차피 원래 코드에서 첫번째 비트가 0일때 AND연산자를 해주긴 하지만,  AND연산자를 사용해 뒤의 7비트만 남겨주는거로 해석했습니다.
+
+http://www.computer-engineering.org/ps2keyboard/scancodes1.html
+여기 make와 break 부분 보시면 알수 있습니다
+

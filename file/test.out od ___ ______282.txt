@@ -1,0 +1,11 @@
+==============Content================
+od -c test.out 실행시키면 아스키 문자가 찍히긴 하는데 \t가 포함된 상태로 한 char 이후에 1개의 \t 씩 같이 찍혀 보입니다. 혹시 붙여서 볼수 있는 방법은 없나요?
+
+
+
+==============Comment================
+제가 남긴 댓글 확인하세요.
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=5&uid=1104&mod=document
+
+strings 명령어를 사용해보세요
+

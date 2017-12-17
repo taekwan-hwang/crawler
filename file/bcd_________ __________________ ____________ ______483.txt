@@ -1,0 +1,16 @@
+==============Content================
+여기서 계속 막히는데 참고할 만한 링크가 있을까요?
+
+
+
+==============Comment================
+상위 4bit를 최하위 bit로 shift 연산하여 변환하고 하위 4bit는 바로 변환하는 식으로 했어요
+
+https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%A7%84%ED%99%94_%EC%8B%AD%EC%A7%84%EB%B2%95 
+를 보시면 이론적인 내용을 확인하실 수 있습니다. 실제로 변환하는 코드 예제 링크는 저도 보지못했네요..
+
+https://stackoverflow.com/questions/37024912/bcd-to-ascii-conversion
+전 여기보고 작성중이에요.
+
+넵 찾아볼게요 감사합니다!
+

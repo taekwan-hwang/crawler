@@ -1,0 +1,27 @@
+==============Content================
+bochs emulator 와 nasm 설치까지 완료 했습니다. ssuos  파일을 다운 받아, extract 해서 과제1에 나오는대로, make run 을 돌려보니 
+캡쳐와 같은 에러가 뜹니다. module 'x' file not found 가 문제인 것 같은데, 이것이 뭘 의미하는지 모르겠습니다.
+bochs 같은 경우  /usr/share/bochs  폴더가 생성되어 있는 걸 보니 설치 완료 된 것 같습니다.
+
+
+
+==============Comment================
+저도 같은 문제가 생겼는데 답글의 su 명령어로 하고 다시 bochs 인스톨 후 실행하니 됩니다. 갑사합니다
+
+저도 같은 오류가 나왔었는데 make 하신다음에 cp bochs bochsdbg로 파일명을 바꿔주고 make install 한번해보시기 바랍니다... 
+저는 이렇게 해서 되긴했는데 되기를 빕니다 ~
+
+cp bochs bochsdbg 이 src 폴더 안에서 make 를 한 다음 , 상위 폴더인 ssuos 폴더 안에 있는 bochs 폴더 파일명을 cp bochs bochsdbg로 변경 해 주고, make install을 해야한다는 뜻이신가요
+
+bochs-2.6.8 파일 안에서 cp 하시면 됩니다.
+
+감사합니다. 해결하였습니다.
+
+저는 기본적으로 su 로 root권한으로 실행하였습니다.
+
+혹시 해결하셨나요? 저도 동일한 증상이 나타납니다.
+
+해결 하였습니다. 이호열님이 말한대로 root 권한 얻어서,  다시 make install 한 뒤,  src 로 들어가서 make - make run 하니 에뮬레이터가 실행되었습니다.
+
+갑자기 저도 동일 증상이 나타나서 위와 같은 방법대로 했는데도 안되는데 혹시 다른 방법으로 하신 분 계신가요?
+

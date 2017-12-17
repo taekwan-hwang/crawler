@@ -1,0 +1,13 @@
+==============Content================
+아래 글들을 읽어보니 32비트 환경에서 실행 해야 할 것 같은데
+
+64비트 환경에서 실행 할 수 있는 방법은 없나요??
+
+
+
+==============Comment================
+https://stackoverflow.com/questions/18778010/how-can-i-compile-a-32-bit-o-file-with-gcc-in-my-64-bit-machine
+저는 위 주소를 참고하여 해결하였습니다
+
+감사합니다 덕분에 해결 됐습니다.
+

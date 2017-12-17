@@ -1,0 +1,14 @@
+==============Content================
+한 inode당 한 direct block(8번 블락부터)을 가지는것 같은데 맞나요?
+그렇다면 inode_create할때 디스크에 inode를 디스크에 write해주고 그 inode가 사용하는 direct block  또한 write해줘야하는건가요?
+
+
+
+==============Comment================
+inode 자료구조를 검색해 보면 direct block하고 indirect block을 두면서 공간을 더 사용하려는 방법입니다. 그래서 direct block 하고 directory entry가 조금 헷갈리시는건 아닌지요 ..
+sn_directblock[]은 해당 inode가 가지는 block의 number를 가지고 있습니다. 
+명세 그림처럼 sn_directblock[0]이 가지는 block number에 struct direntry의 배열로 값을 저장해 주고 필요할때 읽어와 사용하면 됩니다.
+
+inode_create가 호출됬을때, 새로생성된 inode정보를 disk에 갱신해야 하기 때문에, 디스크에 write해주는것은 맞습니다.
+그 inode가 사용하는 direct block에 write를 해줘야할 때는 그 directblock에 어떤 값을 저장할 때겠지요.
+

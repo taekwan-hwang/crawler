@@ -1,0 +1,20 @@
+==============Content================
+page fault난 주소를 통해서 page_table과 page_table의 인덱스를 찾고,
+
+page_table[인덱스]에 page fault난 주소를 실제 주소로 변경해서 넣는 식으로 구현을 하고 있습니다.
+
+스크린샷과 같이 결과가 나오는데 저게 무슨 의미를 뜻하는지 잘 모르겠습니다.
+
+"해당 page table 항목에 page fault를 발생 시킨 메모리 주소의 실제 메모리 주소를 추가"
+라는 명세에서 실제 메모리 주소를 추가하는 부분이 잘못된건가요?
+
+p.s.page fault가 계속 출력되는건 palloc_pf_test 에서 uint32_t *one_page1 = palloc_get_page(); 이부분에서 맵핑 된 페이지를 찾지 못해서 넘어가지 못하기 때문인가요?
+
+
+
+==============Comment================
+1. 명세의 설명이 맞습니다. 
+2. 앞선 질문들과 마찬가지로, 별다른 처리 없이 physical address에 접근하시면 mapping이 안 돼있어 에러가 나기 마련입니다. 지금 반복적으로 에러가 나는 부분은 physical memory 영역입니다. 가장 초기의 에러는 정상적인 것이구요.
+
+네 명세의 설명 대로 이며, page fault가 계속 나는 것은 page directory와 page table을 참조할 때 가상 주소의 bit를 통해서 인덱스로 찾은 항목이 존재하지 않아서 발생하는 것입니다.
+

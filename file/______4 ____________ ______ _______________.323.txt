@@ -1,0 +1,10 @@
+==============Content================
+intr_disable(), intr_enable()함수가 인터럽트 허용 상태를 정하는 함수라고 생각해서 코드에 intr_disable() 가 들어가면 timer_handler도 인터럽트 중 하나로 동작하지 않게 될거라 생각했지만, intr_disable()와 상관없이 timer_handler는 동작하는거 같습니다.
+intr_disable()이 인터럽트 입력이 불가능하게 만드는 함수가 아닌건지,  timer_handler가 intr_disable()과 상관없이 입력이 가능한건지 궁금합니다.
+
+
+
+==============Comment================
+interrupt.c의 intr_disable의 assembly 코드를 보시면 알겠지만 cli명령어를 통해서 외부 인터럽트를 허용하지 않게 하고 있습니다. 이 함수를
+ 호출하게 되면 timer interrupt도 수행되지 않게 됩니다. 질문자분께서 확인을 다시한번 해보시는것을 권유합니다.
+

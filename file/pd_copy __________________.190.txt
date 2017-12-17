@@ -1,0 +1,12 @@
+==============Content================
+pd_copy가 처음 돌아갈 때(i가 0일 때) 
+from[i] & PAGE_FLAG_PRESENT한 값이 0이라 pt_copy를 못 할 줄 알았는데
+gdb로 보니까 어셈블리문 같은 거 수행하면서 page fault : C0000000을 출력해주고
+from[i] & PAGE_FLAG_PRESENT를 1로 바꿔서 pt_copy함수를 실행할 수 있게 해줍니다.
+여기서 어떻게 0이었던 from[i] & PAGE_FLAG_PRESENT값이 1로 바뀐 건가요?
+
+
+
+==============Comment================
+from[i]에 맵핑이 안 되어있다가 page fault를 관리해주면서 맵핑을 해줍니다. gdb를 찍으실 때 pf_handler 쪽을 천천히 찍어보세요.
+

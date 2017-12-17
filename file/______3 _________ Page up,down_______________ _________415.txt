@@ -1,0 +1,11 @@
+==============Content================
+제가 맥북이라서 Page up, down 이 없는데 다른 부분으로 구현하면 안될까요.........
+
+
+
+==============Comment================
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?mod=document&uid=857
+위 주소의 질문과 같은 내용이네요.
+
+와 정말 감사합니다 못봤네요..
+

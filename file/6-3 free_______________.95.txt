@@ -1,0 +1,10 @@
+==============Content================
+do_malloc까지만 구현 했을 경우 ps명령어 입력시 제대로 출력이 되는데 do_free를 구현하면 ps명령어 입력시 맨 첫줄 pid 0의 using time이 -46738357, sched time이 269로 출력됩니다. 그 밑은 다 괜찮게 나오는데 어디가 문제인지 모르겠네요ㅜ...do_free를 잘못구현한건가요? 맨 마지막에 // mem_desc checking를 구현하지 않았는데 이 부분은 무엇을 뜻하나요? 꼭 필요한 부분인가요?
+
+
+
+==============Comment================
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?mod=document&pageid=1&keyword=using&uid=1569 이 질문 참고하시면 될 것 같습니다!
+
+부수적으로 주어진 함수 2개는 사용해도, 안해도 된다고 하셨습니다.
+

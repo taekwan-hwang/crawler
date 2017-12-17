@@ -1,0 +1,35 @@
+==============Content================
+https://stackoverflow.com/questions/12556973/how-does-int-10-13h-work-with-attributes
+
+http://vitaly_filatov.tripod.com/ng/asm/asm_023.20.html
+
+이런 링크들 참조해서 int 10h쓰고있는데요
+
+BP레지스터에 
+mov bp, OFFSET Msg를 해주라는데..
+
+어떤것을 넣어줘야하는건가요?
+
+Msg도 넣어보고
+[Msg]도 넣어봤는데..
+혹시사용하셨던분들 팁좀부탁드려요 ..
+
+Msg: db "hello"
+
+
+
+==============Comment================
+ES래지스터를 초기화 하고 사용하시면 될것 같아요.
+
+답변감사합니다. es레지스터 또한
+
+mov ax, 0
+mov es, ax로 초기화했는데요.
+
+출력이 되긴하는데 쓰레기값이 출력됩니다.ㅜㅜ..
+
+bp는 
+mov bp, Msg 이렇게 쓰는게맞나요?
+
+네 그렇게 사용하고있습니다.
+

@@ -1,0 +1,26 @@
+==============Content================
+링크 도움을 얻어
+https://stackoverflow.com/questions/24168165/configure-error-cannot-run-bin-sh
+의 글을 참조중이었습니다만,
+
+yum 인스톨에서 막히고 (레포지토리 0개.)
+
+2.try run "../gcc-svn/config.sub" through shell
+/bin/bash ../gcc-svn/config.sub
+
+에서는 파일혹은 디렉토리가 없습니다.
+
+3.find the system config.sub
+ find / -name config.sub
+
+해당 명령에서는 config.sub가 발견되긴 했는데, 이를 사용하는것은 아닌거 같고,
+gcc-svn 폴더가 없다고 계속 메세지를 출력하는거로 봐서는 gcc 서치 문제인것 같습니다만, 과제 수행방법에 안내된 대로 설치를 수행해도 이미 설치되었다는 메세지를 출력하며, gcc버전 체크를 하면 5.4.0이 설치되었다고 계속 안내를 합니다.
+svn(subversion)은 설치를 완료하였고, 현 bochs 디렉토리의 상태는 첨부된 이미지와 동일합니다.
+
+task/download에 존재하는 config.sub 파일은 http://manpages.ubuntu.com/manpages/zesty/man1/config.sub2.59.1.html 에서 받아왔던 파일입니다.
+
+해당 config.sub 파일을 복사하면 해결될 것 같습니다만, 허가 거부 메세지를 출력받는 중입니다.
+
+
+
+==============Comment================

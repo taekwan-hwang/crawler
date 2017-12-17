@@ -1,0 +1,18 @@
+==============Content================
+1. 7-4중 '현재 디렉토리에는 생성한 디렉토리정보를 data block에 write해야함' 부분에서 8번 블록인 data block을 사용하지 않고, tmpblock을 사용하면 되는건가요?
+2. inode block인 4~7 번의 블럭을 write 해주는 부분이 sync_inode 함수에만 존재하는데 sync_inode 함수를 생성한 inode의 number에 따라 offset이 결정되고 그 위치에 따라 블럭을 write 해주는 것으로 이해했는데 맞는걸까요..?
+(추가질문)
+make_dir에서 create_inode를 호출한다면 디렉토리의 name은 어떻게 전달하나요? 함수 정의를 고쳐도 되는지 궁금합니다.
+
+
+
+==============Comment================
+(추가질문) create_inode는 함수이름처럼 inode를 생성하고, make_dir에서는 그inode를 리턴받아서 '현재 디렉토리에는 생성한 디렉토리 정보를 data block에 wirte함'을 구현하시면 name을 전달할  필요가 없을 것 같습니다.
+
+1. data block인 8번째 블록부터 그이후 블록들에 쓰는데, 구현과정 중 큰 배열을 사용할 일이 있으면 전역변수로 선언된 tmpblock을 사용하라는 뜻 같습니다.
+
+1-추가. tmpblock을 사용해, data block에 write/read를 하는겁니다.
+2. 맞습니다
+
+감사합니다..!
+

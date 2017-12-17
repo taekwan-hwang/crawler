@@ -1,0 +1,24 @@
+==============Content================
+현재 0번 프로세스(idle)는 schedule() 함수만 계속해서 호출하도록 구현되어있는데
+
+0번 프로세스를 제외한 프로세스는 schedule() 함수 호출을 통해 
+0번 프로세스로 Context Switch하도록 schedule()함수를 바꿔야 할것같습니다.
+
+그렇다면 ,
+1.처음 ssu os를 시작하면 cpu는 idle(0번 프로세스)이 선점하고 있고,
+ schedule함수에 의해 kernal1_proc이   0번 프로세스와 Context Switch되면,
+ CPU는 kernal1_proc이 선점하게 되고  kernal1_proc이 실행되는 동안
+schedule() 함수를 부르는 0번프로세스는 실행되면 안되는게 맞나요?
+
+2.그리고 kernal1_proc이 time slice를 전부 소비하면 schedule()함수가 호출된다고 되어있는데,
+바로 schedule()함수를 호출하는게 아니라 0번 프로세스와 kernal1_proc을 스위치 해서 
+0번 프로세스가 cpu를 선점하게 한 후 schedule()함수를 호출하라는 뜻으로 이해했는데 맞는지 궁금합니다.
+
+
+
+==============Comment================
+1. 네.
+2. 명세 102쪽 (2)를 읽어보세요. context switch는 schedule() 함수 내부에서 하는 겁니다.
+
+감사합니다. 이해했습니다.
+

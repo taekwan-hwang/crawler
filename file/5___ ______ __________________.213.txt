@@ -1,0 +1,15 @@
+==============Content================
+cr3의 상위 20비트에 페이지 디렉토리의 주소값을 넣으려고 하는데 화면이 재부팅이 되네요. 왜 그런지 알 수 있을까요...?
+
+
+
+==============Comment================
+cr3는 왜 수정하려고 하시는 건가요...?
+
+cr3의 상위 20비트에 있는 페이직 디렉토리 주소가 물리 주소라서 올바른 페이지 디렉토리 주소로 바꾸는게 이번 과제 방법 아닌가요...?
+
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=2&mod=document&uid=1328
+위 게시글 읽어보시면 도움이 될 듯 합니다.
+
+https://en.wikipedia.org/wiki/Control_register#/media/File:X86_Paging_4K.svg 이게 도움이 되실거같습니다.
+

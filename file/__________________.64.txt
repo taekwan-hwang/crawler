@@ -1,0 +1,18 @@
+==============Content================
+1.스크린 샷에서 root폴더만 존재할때 왜 크기가 128인가요?
+2.mkdir로 mans폴더를 생성후 root의 blocks가 1인 이유를 모르겠습니다.
+3. root의 blocks가 1이면 root inode의 sn_directblock에도 0번 인덱스에 자신이 들어가고 다른 인덱스에 값이 들어가면 안되는건가요?
+(그렇다면 과제요약 (4)번의 그림과 모순되지않나요?)
+(생성한 디렉토리정보를 data block에 write할때 root의 sn_directblock을 참조해서 write하려고 했는데 sn_directblock에 block이 하나만 들어가면 write할 적절한 위치를 찾는 방법을 잘 모르겠습니다.)
+
+
+
+==============Comment================
+저랑 같은부분에서 착각하신것 같습니다.
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?uid=1763&mod=document&pageid=1
+제가 올렸던 질문 링크이구요. 답변을 보시면 이해가시겟지만 sn_directblock에서 가리키는 장소에 해당 inode의 디렉토리 엔트리정보가 들어간다고 생각하시면 될 것 같습니다.
+
+1. 루트디렉터리만 존재할 때 루트의 디렉터리에는 ..과 .이 포함되어있을 것입니다. 디렉터리 하나의 크기는 64B이기 때문에 ..과 . 합쳐서 128이 되게됩니다.
+2. nlink는 사용하고있는 데이타블락의 갯수라고 생각하시면 될 것 같습니다.
+3. sn_directblock은 사용하고있는 데이타블락을 값으로 가집니다. 즉 인덱스 1개당 ..과 .을 제외하여 62개의 디렉터리를 가질 수 있습니다. 명세의 그림을 보시면 sn_directblock[0]이 ino=2, ..인 곳을 가르키고있는데 sn_directblock[1]이 ino=2, .을 가르키고있는 것이 아니라 거기 있는 그림의 시작부분을 sn_directblock[0]이 가지고 있다고 생각하시면 편할 것같습니다.
+

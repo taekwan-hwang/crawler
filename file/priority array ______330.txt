@@ -1,0 +1,22 @@
+==============Content================
+process을 linked lisst 로 묶기 위해선 process에 있는 list_elem형 변수를 이용해야 하는거 같은데
+elem_all 과 elem_stat는 각각 이미 다른 곳에서 쓰이는것 같습니다.
+
+그래서 priority array의 각 원소를 linked list로 구현하기 위해선 process구조체 안에 변수하나를 추가해야 할 것 같은데
+혹시 process 구조체를 변경하지 않고 priority array 구현이 가능하다면 힌트좀 주시면 감사하겠습니다.
+
+
+
+==============Comment================
+저는 추가했습니다.
+
+priority array는 구조체의 변수추가와 독립적으로 구현가능합니다.
+
+priority array가 struct list의 배열이라고 가정했을 때, 이들 중 1개에 struct process를 넣으려면 struct list_elem을 써야 하는데요. 이미 있는 struct list_elem는 plist, rlist, 또는 slist에 매달려야 하잖아요. 이걸 재활용하게 될 경우, 기존에 달려 있던 리스트에서는 자연스럽게 빠지도록 구현돼 있네요(push_back, or list_insert). 이건 아무래도 모양새가 나빠서요. 특히, rlist/slist에서 빠지게 될 경우... 구현 방법에 따라 문제가 있지 않나요? 다시 말해서, 기존의 struct list_elem을 재활용하지 않으려면, list_elem를 새로 선언하는게 맞지 않나요...?
+
+그 list_elem이 어떻게 사용되는지를 파악하고 그 자체를 사용하시면 그대로 사용가능합니다.
+
+네. 한 번 생각해보겠습니다.
+
+priority array에서 priority에 따라 process들이 묶이는 것이지 process자체는 수정할 것이 없지 않나요?
+

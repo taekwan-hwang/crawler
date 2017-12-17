@@ -1,0 +1,27 @@
+==============Content================
+switch_process 에 의해 0번 프로세스에서 kernel_proc()로 context switching이 발생하고 kernel_proc() 함수가 수행이 됩니다. 이때 kernel_proc() 는 내부 while(1)문을 통해 돌고있는상황에서 timer_handler 에 의해 타임인터럽트가 발생하고 결국은 schedule() 로 다시 0번 프로세스로 context switching 됩니다. 실행결과창을 관찰해본 결과 kernel_proc() 가 돌고있는 도중에 화면에는 어떠한것도 출력이 되지않는것으로보아 kernel_proc() 의 while(1){} 구현부에 굳이 뭘 넣어야할필요가있을까하는(자체 종료만 안시키면 된다는 생각이듭니다.) 생각이 드는데요(timerinterrupt에 의한 context switching은 timer_handler 가 하는것으로 이해했습니다.)  혹시 제가 잘못이해한부분이있는것인지요?
+
+
+
+==============Comment================
+그러면 0번프로세스가 60tick이나 차지하게 되지 않을까요?
+
+switch_process 로 cur 이 kernel_proc()를 가리키게되면 그때부터 time_hanler에 의해서 kernel_proc()의 timeslice가 증가하게되고 0번프로세스의 timeslice는 0으로 초기화되고 고정상태에 들어가지않나요?( timerinterrupt에 의해 0번프로세스로 context switch 되기 전까지 )
+
+아 죄송합니다 제가 0번프로세스의 while()문으로 질문을 잘못이해했네요 
+저같은 경우에는 while()문 안에는 프로세스가 계속 돌아가고 있다고 생각하고
+while()을 벗어나면 프로세스가 종료되었다고 하였습니다.
+
+지금 든 생각입니다만,,인터럽트관련 조건문이 필요할것같다는 생각이 들게되었습니다..
+
+질문을 정확히 이해하지 못하였지만ㅠ
+저는 명세의 화면 출력결과처럼 출력하기위해 각kernel_proc()함수에  코드를 추가하였습니다.
+
+각 kernel_proc1(), kernel_proc2(), kernel_proc3() 함수는 proc_create()를 통해서 생성되는 프로세스의 생명주기를 나타낸다고 보시면 이해가 되시려나요?
+
+말씀하신 생명주기는 프로세스의 중단과 관련된것을 말씀하시는것인가요?
+
+중단 및 I/O처리 관련한 것들을 의미합니다.
+
+해결됬습니다.
+

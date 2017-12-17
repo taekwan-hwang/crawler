@@ -1,0 +1,11 @@
+==============Content================
+과제4에 우선순위가 real time priority와 nice를 합친 값이라고 나와있습니다.
+정확히 둘의 차이가 어떤 것인지 궁금합니다..
+nice는 수업시간에 선점에 대해 배우면서 들은것같은데 real time priority는 검색해도 잘 모르겠네요.. ㅠㅠ
+
+
+
+==============Comment================
+https://libsora.so/posts/system-prog-linux-process-schduling/
+이 페이지의 O(1) scheduler의 static priority 부분을 확인하시면 될 것 같습니다. ssuos에서 사용하는 값과는 이름에는 차이가 있음을 유의하시고, 동작 방식도 차이가 있으니 구현은 반드시 과제의 명세를 따라주십시오.
+

@@ -1,0 +1,14 @@
+==============Content================
+file open쪽 작업하다보니 'mode' 인자가 있어서 어디에 있는건가, 싶어 찾았으나 코드에는 안보여서 검색을 해보니
+
+https://oslab.ssu.ac.kr/main/index.php/oslab-main/2017-os/qa/?pageid=1&mod=document&keyword=mode&uid=1932
+
+이 글을 발견했는데요.
+
+이 글의 답변에 따르면 어차피 이번 과제에서는 mode 처리를 하지 않으니까 mode는 그냥 임의의 값을 넣어서 채워도 된다는건가요?
+
+
+
+==============Comment================
+네 그냥 0같은 아무값을 채우고 진행하셔도 됩니다.
+

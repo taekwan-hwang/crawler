@@ -1,0 +1,14 @@
+==============Content================
+강의 교제 31 페이지 쓰레드 상태에 프로세스가 스왑아웃 되면, 그 프로세스의 모든 쓰레드는 주소공간을 공유하기 때문에 모든 쓰레드도 반드시 스왑아웃 된다고 나와있습니다. 
+프로세스가 블락 상태에서 실행 중인 쓰레드가 있는 경우에 스왑아웃 당하게 되면 실행 중인 쓰레드는 어떻게 되는지 궁금합니다.
+
+
+
+==============Comment================
+강의 교재 p 30의 '프로세스 관리의 관점에서 쓰레드와 프로세스의 차이점' 부분의 '다중 쓰레드 프로세스 모델' 설명에서, 프로세스 내의 모든 쓰레드들은 그 프로세스의 상태와 자원을 공유한다고 나와있습니다.  저는 이 부분의 설명과 스케쥴링의 단위가 thread인 점에서, thread의 state는 해당 thread가 포함된 process의 state와 무관하지 않다고 생각했었습니다.(process의 run여부) 
+오태건님의 문의글을 보고 과연 무관할 수 있는가에 확신이 없어 찾아보았고, 프로세스가 블락된 상태에서는 해당 프로세스에 종속된 쓰레드들 또한 실행될 수 없다는 설명을 보았습니다. 따라서 프로세스가 블락 상태에서 스왑아웃을 당하게 된다면, 해당 자원을 공유하는 쓰레드들 또한 함께 스왑아웃될 것이라고 생각됩니다. 아래에 그 주소와 해당 부분을 같이 남깁니다. 제가 잘못안 것이라면 알려주세요..
+
+https://en.m.wikipedia.org/wiki/Thread_(computing)
+
+When an I/O operation is initiated, a system call is made, and does not return until the I/O operation has been completed. In the intervening period, the entire process is "blocked" by the kernel and cannot run, which starves other user threads and fibers in the same process from executing.
+
